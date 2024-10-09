@@ -1,0 +1,15 @@
+{
+    "db_config": {
+        "user": "user de la base de données",
+        "password": "user mot de passe",
+        "host": "IP Address du serveur",
+        "database": "nom de la base de données"
+    },
+    "email_config": {
+        "sender": "email à utiliser",
+        "password": "mot de passe d'application",
+        "recipient": "email de réception",
+        "smtp_server": "smtp.gmail.com",
+        "smtp_port": 587
+    }
+}

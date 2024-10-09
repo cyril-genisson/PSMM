@@ -1,0 +1,15 @@
+{
+    "hostname": "IP Address du serveur ftp",
+    "username": "nom d'utilisateur",
+    "key_file": "Chemin vers la clé privée SSH",
+    "sudo_password": "mot de passe sudo",
+    "mysql_user": "nom d'utilisateur du serveur MariaDB",
+    "mysql_password": "mot de passe",
+    "db_config": {
+        "user": "nom d'utilisateur de la base de données",
+        "password": "mot de passe",
+        "host": "IP Addresse du serveur MariaDB",
+        "database": "nom de la base de données"
+    },
+    "log_file": "chemin vers le fichiers de logs du Serveur ftp"
+}

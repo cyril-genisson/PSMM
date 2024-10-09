@@ -1,0 +1,28 @@
+{
+    "db_config": {
+        "user": "nom d'utilisateur de la base de données",
+        "password": "mot de passe",
+        "host": "IP Addresse du serveur MariaDB",
+        "database": "nom de la base donnée"
+    },
+    "servers": [
+        {
+            "hostname": "IP Addresse du serveur ftp",
+            "username": "user du serveur ftp",
+            "key_file": "chemin vers la clé privée SSH du serveur",
+            "sudo_password": "mot de passe sudo"
+        },
+        {
+            "hostname": "IP Addresse du serveur Web",
+            "username": "user du serveur web",
+            "key_file": "chemin vers la clé privée SSH du serveur",
+            "sudo_password": "mot de passe sudo"
+        },
+        {
+            "hostname": "IP Addresse du serveur MariaDB",
+            "username": "user du serveur MariaDB",
+            "key_file": "chemin vers la clé privée SSH du serveur",
+            "sudo_password": "mot de passe sudo"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "mariadb":
+    {
+        "host": "db",
+        "journal": "journalctl -u mariadb --output=json",
+        "regex_error_credentials": "",
+        "table_error": "bdd"
+    },
+    "nginx":{
+        "host": "web",
+        "journal": "journalctl -u nginx --output=json",
+        "regex_error_credentials": "",
+        "table_error": "web"
+    },
+    "vsftpd":{
+        "host": "ftp",
+        "journal": "journalctl -u nginx --output=json",
+        "regex_error_credentials": "",
+        "table_error": "ftp"
+    }
+}

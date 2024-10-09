@@ -1,0 +1,7 @@
+{
+    "hostname": "IP Address du serveur",
+    "username": "nom utilisateur du serveur",
+    "key_file": "chemin vers la clé privée SSH",
+    "command": "df -h",
+    "sudo_password": "mot de passe sudo"
+}

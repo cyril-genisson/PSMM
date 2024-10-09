@@ -1,0 +1,77 @@
+Vagrant.configure("2") do |config|
+    # Configuration commune à toutes les machines  
+    config.vm.box = "debian/bookworm64"
+  
+    # Machine web
+    config.vm.define "web" do |web|
+      web.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = "1"
+      end
+      web.vm.hostname = "web"
+      web.vm.network "private_network",
+        ip: "192.168.200.11",
+        netmask: "255.255.255.0",
+        bridge: "Ethernet 2"
+      web.vm.provision "shell", path: "provision/common.sh", privileged: true
+      #web.vm.provision "shell", path: "provision/web.sh", privileged: true
+    end
+  
+    # Machine ftp
+    config.vm.define "ftp" do |ftp|
+      ftp.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = "1"
+      end
+      ftp.vm.hostname = "ftp"
+      ftp.vm.network "private_network",
+        ip: "192.168.200.13",
+        netmask: "255.255.255.0",
+        bridge: "Ethernet 2"
+      ftp.vm.provision "shell", path: "provision/common.sh", privileged: true
+      #ftp.vm.provision "shell", path: "provision/ftp.sh", privileged: true
+    end
+  
+    # Machine db
+    config.vm.define "db" do |db|
+      db.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+        vb.cpus = "2"
+      end
+      db.vm.hostname = "db"
+      db.vm.network "private_network",
+        ip: "192.168.200.12",
+        netmask: "255.255.255.0",
+        bridge: "Ethernet 2"
+      db.vm.provision "shell", path: "provision/common.sh", privileged: true
+      #db.vm.provision "shell", path: "provision/db.sh", privileged: true
+    end
+  
+    # Machine psmm
+    config.vm.define "psmm" do |psmm|
+      psmm.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+        vb.cpus = "2"
+      end
+      psmm.vm.hostname = "psmm"
+      psmm.vm.network "private_network",
+        ip: "192.168.200.10",
+        netmask: "255.255.255.0",
+        bridge: "Ethernet 2"
+      psmm.vm.provision "shell", path: "provision/common.sh", privileged: true
+      psmm.vm.provision "file", source: "../sshkeys/monitor", destination: "/home/vagrant/id_ed25519"
+      psmm.vm.provision "file", source: "../sshkeys/monitor.pub", destination: "/home/vagrant/id_ed25519.pub"
+      psmm.vm.provision "file", source: "src/lib.py", destination: "/home/vagrant/lib.py"
+      psmm.vm.provision "file", source: "src/ssh_login.py", destination: "/home/vagrant/ssh_login.py"
+      psmm.vm.provision "file", source: "src/ssh_login_sudo.py", destination: "/home/vagrant/ssh_login_sudo.py"
+      psmm.vm.provision "file", source: "src/ssh_mariadb.py", destination: "/home/vagrant/ssh_mariadb.py"
+      psmm.vm.provision "file", source: "src/ssh_mariadb_error.py", destination: "/home/vagrant/ssh_mariadb_error.py"
+      psmm.vm.provision "file", source: "src/ssh_update.py", destination: "/home/vagrant/ssh_update.py"
+      psmm.vm.provision "file", source: "src/ssh_serveur_mail.py", destination: "/home/vagrant/ssh_serveur_mail.py"
+      psmm.vm.provision "file", source: "src/chat.py", destination: "/home/vagrant/chat.py"
+      psmm.vm.provision "file", source: "src/services.json", destination: "/home/vagrant/services.json"
+      psmm.vm.provision "file", source: "src/credentials.json", destination: "/home/vagrant/credentials.json"
+      psmm.vm.provision "shell", path: "provision/psmm.sh", privileged: true
+      #psmm.vm.provision "shell", path: "provision/actions.sh", privileged: true, run: "always"
+    end
+  end

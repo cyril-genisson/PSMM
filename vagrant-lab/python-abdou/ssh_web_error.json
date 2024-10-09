@@ -1,0 +1,15 @@
+{
+    "hostname": "IP Adress du Serveur",
+    "username": "nom d'utilisateur",
+    "key_file": "chemin vers la clé privé SSH",
+    "sudo_password": "mot de passe sudo de l'utiisateur",
+    "mysql_user": "nom d'utilisateur mariadb",
+    "mysql_password": "mot de passe",
+    "db_config": {
+        "user": "nom d'utilisateur de la base de données",
+        "password": "mot de passe",
+        "host": "IP Addresse du serveur MariaDB",
+        "database": "nom de la base de donnée"
+    },
+    "log_file": "Chemin vers les log"
+}

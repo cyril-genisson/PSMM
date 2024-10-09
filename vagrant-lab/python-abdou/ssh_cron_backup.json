@@ -1,0 +1,11 @@
+{
+    "hostname": "IP Address du serveur MariaDB",
+    "username": "nom utilisateur",
+    "key_file": "chemin vers le fichier log du serveur",
+    "mysql_user": "nom utilisateur du serveur MariaDB",
+    "mysql_password": "mot de passe sudo",
+    "db_config": {
+        "database": "nom de la base de données"
+    },
+    "backup_dir": "Chemin vers le fichier .sql pour le dump"
+}
